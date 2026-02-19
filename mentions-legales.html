@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions légales — Nollan Droguet</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0d0f14;
+  --surface: #13161d;
+  --card: #181c25;
+  --card2: #1e2330;
+  --border: #272d3d;
+  --accent: #4f8ef7;
+  --accent2: #9b6dff;
+  --text: #e8ecf4;
+  --muted: #8892a4;
+  --muted2: #5a6478;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.83rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.back-link:hover { color: var(--text); }
+
+.back-link svg {
+  width: 14px; height: 14px;
+  flex-shrink: 0;
+}
+
+.topbar-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+  border-left: 1px solid var(--border);
+  padding-left: 1.5rem;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+  width: 100%;
+}
+
+/* PAGE HEADER */
+.page-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.page-tag::before {
+  content: '';
+  display: block;
+  width: 16px; height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.page-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.page-header .meta {
+  font-size: 0.8rem;
+  color: var(--muted2);
+  font-weight: 500;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 2.75rem;
+}
+
+.section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section h2 .icon {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.section p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 0.65rem;
+}
+
+.section p:last-child { margin-bottom: 0; }
+
+.section p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.section a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79,142,247,0.3);
+  transition: border-color 0.15s;
+}
+
+.section a:hover { border-color: var(--accent); }
+
+/* INFO CARD */
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.855rem;
+  align-items: baseline;
+}
+
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+
+.info-label {
+  font-weight: 600;
+  color: var(--text);
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.info-value { color: var(--muted); }
+.info-value a { color: var(--accent); }
+
+/* NOTICE BOX */
+.notice-box {
+  background: rgba(79,142,247,0.07);
+  border: 1px solid rgba(79,142,247,0.2);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.notice-box strong { color: var(--text); }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.74rem;
+  color: var(--muted2);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.footer a {
+  color: var(--muted2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 1rem; }
+  .main { padding: 2rem 1.25rem 4rem; }
+  .info-row { flex-direction: column; gap: 0.2rem; }
+  .info-label { min-width: auto; }
+}
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="cours_ai.html" class="back-link">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M10 3L5 8l5 5"/>
+    </svg>
+    Retour au cours
+  </a>
+  <span class="topbar-title">Introduction à l'IA pour le travail — Nollan Droguet</span>
+</header>
+
+<main class="main">
+
+  <div class="page-header">
+    <p class="page-tag">Informations légales</p>
+    <h1>Mentions légales</h1>
+    <p class="meta">Dernière mise à jour : février 2026</p>
+  </div>
+
+  <!-- ÉDITEUR -->
+  <div class="section">
+    <h2><span class="icon">👤</span> Éditeur du site</h2>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Nom et prénom</span>
+        <span class="info-value">Nollan Droguet</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Statut</span>
+        <span class="info-value">Etudiant, BTS SIO option SISR — site personnel non commercial</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Ville</span>
+        <span class="info-value">Rennes, France</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Contact</span>
+        <span class="info-value"><a href="mailto:nollandroguetpro@gmail.com">nollandroguetpro@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HÉBERGEMENT -->
+  <div class="section">
+    <h2><span class="icon">🌐</span> Hébergement</h2>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Hébergeur</span>
+        <span class="info-value">GitHub, Inc.</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Service</span>
+        <span class="info-value">GitHub Pages</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Adresse</span>
+        <span class="info-value">88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Site</span>
+        <span class="info-value"><a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">URL du site</span>
+        <span class="info-value">À compléter après déploiement GitHub Pages</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPRIÉTÉ INTELLECTUELLE -->
+  <div class="section">
+    <h2><span class="icon">©</span> Propriété intellectuelle</h2>
+    <p>Ce site est un <strong>récapitulatif personnel de formation</strong> réalisé dans un cadre éducatif et non commercial. Il est destiné à la prise de notes et au partage de connaissances.</p>
+    <p>Le contenu éditorial (textes de synthèse, mise en forme, structure) est la propriété de <strong>Nollan Droguet</strong> et ne peut être reproduit sans autorisation préalable.</p>
+    <p>Les <strong>visuels pédagogiques</strong> (schémas et graphiques intégrés) sont issus des supports de cours originaux et appartiennent à leurs auteurs respectifs. Leur reproduction sur ce site s'inscrit dans un usage strictement éducatif et non lucratif.</p>
+    <p>Les <strong>marques et logos</strong> cités (ChatGPT, Claude, Midjourney, DataCamp, etc.) sont la propriété de leurs détenteurs respectifs. Leur mention n'implique aucun partenariat ou affiliation.</p>
+  </div>
+
+  <!-- RESPONSABILITÉ -->
+  <div class="section">
+    <h2><span class="icon">⚠️</span> Limitation de responsabilité</h2>
+    <p>Les informations présentées sur ce site sont fournies <strong>à titre informatif et éducatif uniquement</strong>. Malgré le soin apporté à leur exactitude, elles peuvent contenir des erreurs ou être incomplètes.</p>
+    <p>Le domaine de l'intelligence artificielle évolue très rapidement. Certaines informations peuvent être <strong>partiellement obsolètes</strong> au moment de la consultation. Il est recommandé de vérifier les données critiques auprès des sources officielles.</p>
+    <p>L'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation des informations présentées sur ce site.</p>
+    <p>Les liens hypertextes vers des sites tiers sont fournis à titre indicatif. L'éditeur n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.</p>
+  </div>
+
+  <!-- DONNÉES PERSONNELLES -->
+  <div class="section">
+    <h2><span class="icon">🔒</span> Données personnelles</h2>
+    <p>Ce site <strong>ne collecte aucune donnée personnelle</strong> sur ses visiteurs. Il ne recourt à aucun cookie de traçage, aucun formulaire d'inscription, aucun outil d'analyse comportementale.</p>
+    <p>Il s'agit d'un site statique hébergé sur GitHub Pages. GitHub peut collecter des données techniques (adresse IP, logs d'accès) dans le cadre de la fourniture de son service d'hébergement. Pour plus d'informations, consultez la <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">politique de confidentialité de GitHub</a>.</p>
+    <div class="notice-box">
+      <strong>Conformément au RGPD</strong> (Règlement Général sur la Protection des Données, UE 2016/679), vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour exercer ces droits ou pour toute question, contactez : <a href="mailto:nollandroguetpro@gmail.com">nollandroguetpro@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- DROIT APPLICABLE -->
+  <div class="section">
+    <h2><span class="icon">⚖️</span> Droit applicable</h2>
+    <p>Le présent site et ses mentions légales sont régis par le <strong>droit français</strong>. En cas de litige, les tribunaux compétents seront ceux du ressort de Rennes, France.</p>
+    <p>Ce site est conforme aux dispositions de la <strong>loi n° 2004-575 du 21 juin 2004</strong> pour la confiance dans l'économie numérique (LCEN).</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <h2><span class="icon">✉️</span> Contact</h2>
+    <p>Pour toute question relative à ce site ou à son contenu, vous pouvez contacter l'éditeur à l'adresse suivante : <a href="mailto:nollandroguetpro@gmail.com">nollandroguetpro@gmail.com</a></p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  Mentions légales · Nollan Droguet · 2025 · <a href="cours_ai.html">Retour au cours</a>
+</footer>
+
+</body>
+</html>
